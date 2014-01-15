@@ -1,0 +1,56 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Controls="clr-namespace:Kavand.Windows.Controls">
+
+    <ControlTemplate x:Key="DefaultDatePickerTextBoxTemplate" TargetType="{x:Type Controls:DatePickerTextBox}">
+        <Grid>
+            <Grid.Resources>
+                <SolidColorBrush x:Key="WatermarkBrush" Color="#FFAAAAAA"/>
+            </Grid.Resources>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="WatermarkStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="00:00:00.150" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState Name="Unwatermarked" />
+                    <VisualState Name="Watermarked">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PART_Watermark" Storyboard.TargetProperty="Opacity" To="1" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup Name="FocusStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="00:00:00.150" />
+                    </VisualStateGroup.Transitions>
+                    <VisualState Name="Unfocused" />
+                    <VisualState Name="Focused">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="WatermarkWrapper" Storyboard.TargetProperty="Opacity" To=".4" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="WatermarkWrapper" Margin="2" Opacity=".8">
+                <ContentControl x:Name="PART_Watermark" Opacity="0" Padding="{TemplateBinding Padding}" Focusable="False" IsHitTestVisible="False"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Foreground="{StaticResource WatermarkBrush}"/>
+            </Border>
+            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Grid>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Controls:DatePickerTextBox}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template" Value="{StaticResource DefaultDatePickerTextBoxTemplate}"/>
+    </Style>
+
+
+</ResourceDictionary>

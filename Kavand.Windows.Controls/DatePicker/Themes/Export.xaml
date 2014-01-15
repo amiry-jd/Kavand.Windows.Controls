@@ -2,9 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Kavand.Windows.Controls;component/Calendar/Themes/Export.xaml" />
-        <ResourceDictionary Source="/Kavand.Windows.Controls;component/DatePicker/Themes/Export.xaml" />
+        <ResourceDictionary Source="/Kavand.Windows.Controls;component/DatePicker/Themes/DatePickerTextBox.xaml" />
+        <ResourceDictionary Source="/Kavand.Windows.Controls;component/DatePicker/Themes/DatePicker.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
 
 </ResourceDictionary>

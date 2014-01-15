@@ -49,6 +49,9 @@
     <Compile Include="Calendar\CalendarViewPresenter.cs" />
     <Compile Include="Calendar\DayNameMode.cs" />
     <Compile Include="Calendar\MonthNameMode.cs" />
+    <Compile Include="DatePicker\DatePicker.cs" />
+    <Compile Include="DatePicker\DatePickerTextBox.cs" />
+    <Compile Include="Infrastructures\BooleanBoxes.cs" />
     <Compile Include="Infrastructures\CultureInfoHelper.cs" />
     <Compile Include="Calendar\DateChangedEventArgs.cs" />
     <Compile Include="Calendar\DateRange.cs" />
@@ -57,6 +60,7 @@
     <Compile Include="Calendar\DayButton.cs" />
     <Compile Include="Infrastructures\DependencyObjectExtensions.cs" />
     <Compile Include="Calendar\GregorianCalendarEngine.cs" />
+    <Compile Include="Infrastructures\ElementPartNotFoundException.cs" />
     <Compile Include="Infrastructures\IVisualStateUpdateable.cs" />
     <Compile Include="Infrastructures\KeyboardHelper.cs" />
     <Compile Include="Calendar\MonthYearButton.cs" />
@@ -114,6 +118,18 @@
     <Page Include="Calendar\Themes\MonthYearButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DatePicker\Themes\DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DatePicker\Themes\DatePickerTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DatePicker\Themes\Export.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>

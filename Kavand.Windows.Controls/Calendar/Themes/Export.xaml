@@ -8,5 +8,4 @@
         <ResourceDictionary Source="/Kavand.Windows.Controls;component/Calendar/Themes/Calendar.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-
 </ResourceDictionary>
