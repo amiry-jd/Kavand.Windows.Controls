@@ -8,11 +8,11 @@ using System.Windows.Markup;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Kavand.Windows.Controls")]
-[assembly: AssemblyDescription("A set of WPF developed/extended controls")]
+[assembly: AssemblyTitle("Kavand.Windows.Controls.faIR")]
+[assembly: AssemblyDescription("A set of extensions for Kavand.Windows.Controls library that brings developers some Persian culture features (e.g. PersianCalendar, PersianDatePicker, PersianDateTimeFormatInfo, etc.).")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dadeh Gostar Kavand")]
-[assembly: AssemblyProduct("Kavand.Windows.Controls")]
+[assembly: AssemblyProduct("Kavand.Windows.Controls.faIR")]
 [assembly: AssemblyCopyright("Copyright ©  2014 Dadeh Gostar Kavand.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -56,3 +56,4 @@ using System.Windows.Markup;
 [assembly: AssemblyFileVersion("0.1.0.0")]
 
 [assembly: XmlnsDefinition("http://www.kweb.ir/wpf", "Kavand.Windows.Controls")]
+[assembly: XmlnsDefinition("http://www.kweb.ir/wpf", "Kavand.Windows.Controls.faIR")]

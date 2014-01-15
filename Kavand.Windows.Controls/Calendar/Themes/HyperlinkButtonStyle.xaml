@@ -1,0 +1,56 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <ControlTemplate x:Key="HeaderButtonTemplate" TargetType="Button">
+        <Grid Cursor="Hand">
+            <ContentPresenter x:Name="Content" Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              TextElement.Foreground="{TemplateBinding Foreground}"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <!--
+                While -as far as I know- it's not possible to animate the button's 
+                foreground in a VisualStateGroup, so I have to animate it in triggers
+            -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                            To="{x:Static SystemColors.MenuHighlightColor}" Duration="00:00:00.100" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                            To="{x:Static SystemColors.MenuTextColor}" Duration="00:00:00.100" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Content" Property="Opacity" Value=".4"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="HyperlinkButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="10 5" />
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuTextColorKey}}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template" Value="{StaticResource HeaderButtonTemplate}" />
+    </Style>
+    
+</ResourceDictionary>

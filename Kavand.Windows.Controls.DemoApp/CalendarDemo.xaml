@@ -1,0 +1,36 @@
+﻿<Window x:Class="Kavand.Windows.Controls.DemoApp.CalendarDemo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://www.kweb.ir/wpf"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" 
+        Title="Calendar Demo" Height="500" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10 10 10 0" Grid.ColumnSpan="2">
+            <StackPanel.Resources>
+                <ObjectDataProvider x:Key="SelectionModes" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                    <ObjectDataProvider.MethodParameters>
+                        <x:Type TypeName="CalendarSelectionMode"/>
+                    </ObjectDataProvider.MethodParameters>
+                </ObjectDataProvider>
+            </StackPanel.Resources>
+            <Label Content="Selection Mode:"/>
+            <ComboBox x:Name="SelectionModeSelector"
+                      ItemsSource="{Binding Source={StaticResource SelectionModes}}"
+                      SelectedItem="{x:Static CalendarSelectionMode.SingleDate}"/>
+        </StackPanel>
+        <k:Calendar Grid.Row="1" Margin="10" x:Name="Calendar"
+                    SelectionMode="{Binding Path=SelectedValue,ElementName=SelectionModeSelector}"/>
+
+        <ListView Grid.Row="1" Grid.Column="1" BorderThickness="1" Margin="0 10 10 10" Width="160"
+                  BorderBrush="{Binding BorderBrush,ElementName=Calendar}"
+                  ItemsSource="{Binding SelectedDates,ElementName=Calendar}"/>
+    </Grid>
+</Window>
