@@ -11,11 +11,11 @@ namespace Kavand.Windows.Controls.faIR.DemoApp {
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application {
-        //protected override void OnStartup(StartupEventArgs e) {
-        //    var c = new PersianCultureInfo();
-        //    Thread.CurrentThread.CurrentCulture = c;
-        //    Thread.CurrentThread.CurrentUICulture = c;
-        //    base.OnStartup(e);
-        //}
+        protected override void OnStartup(StartupEventArgs e) {
+            var c = new PersianCultureInfo();
+            Thread.CurrentThread.CurrentCulture = c;
+            Thread.CurrentThread.CurrentUICulture = c;
+            base.OnStartup(e);
+        }
     }
 }
