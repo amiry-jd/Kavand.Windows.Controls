@@ -197,6 +197,16 @@ namespace Kavand.Windows.Controls {
             Focus();
         }
 
+        protected override void OnPreviewMouseWheel(MouseWheelEventArgs e) {
+            base.OnPreviewMouseWheel(e);
+            if (e.Delta == 0)
+                return;
+            _changingTextByUser = true;
+            e.Handled = true;
+            OnUpDownKeyPressed(e.Delta > 0);
+            _changingTextByUser = false;
+        }
+
         protected override void OnPreviewKeyDown(KeyEventArgs e) {
             _changingTextByUser = true;
             e.Handled = true;
