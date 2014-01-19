@@ -51,6 +51,8 @@
     <Compile Include="Calendar\MonthNameMode.cs" />
     <Compile Include="DatePicker\DatePicker.cs" />
     <Compile Include="DatePicker\DatePickerTextBox.cs" />
+    <Compile Include="DayTimePicker\DayTimePicker.cs" />
+    <Compile Include="DayTimePicker\TimeSegment.cs" />
     <Compile Include="Infrastructures\BooleanBoxes.cs" />
     <Compile Include="Infrastructures\CultureInfoHelper.cs" />
     <Compile Include="Calendar\DateChangedEventArgs.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="Calendar\MonthYearButton.cs" />
     <Compile Include="Calendar\SelectedDatesCollection.cs" />
     <Compile Include="Calendar\SelectionChangedEventArgs.cs" />
+    <Compile Include="Infrastructures\ValueChangedEventArgs`.cs" />
     <Compile Include="Infrastructures\VisualStates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -136,6 +139,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
