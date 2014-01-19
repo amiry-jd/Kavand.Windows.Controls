@@ -29,8 +29,15 @@
         <k:Calendar Grid.Row="1" Margin="10" x:Name="Calendar"
                     SelectionMode="{Binding Path=SelectedValue,ElementName=SelectionModeSelector}"/>
 
-        <ListView Grid.Row="1" Grid.Column="1" BorderThickness="1" Margin="0 10 10 10" Width="160"
-                  BorderBrush="{Binding BorderBrush,ElementName=Calendar}"
-                  ItemsSource="{Binding SelectedDates,ElementName=Calendar}"/>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0 10 10 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Selected Date(s):" FontWeight="Bold" Margin="0 0 0 10"/>
+            <ListView BorderThickness="1" Width="160" Grid.Row="1"
+                      BorderBrush="{Binding BorderBrush,ElementName=Calendar}"
+                      ItemsSource="{Binding SelectedDates,ElementName=Calendar}"/>
+        </Grid>
     </Grid>
 </Window>

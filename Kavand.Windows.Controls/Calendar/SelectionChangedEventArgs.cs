@@ -22,7 +22,7 @@ namespace Kavand.Windows.Controls {
         }
 
         protected override void InvokeEventHandler(Delegate genericHandler, object genericTarget) {
-            var handler = genericHandler as EventHandler<System.Windows.Controls.SelectionChangedEventArgs>;
+            var handler = genericHandler as EventHandler<SelectionChangedEventArgs>;
             if (handler != null)
                 handler(genericTarget, this);
             else
