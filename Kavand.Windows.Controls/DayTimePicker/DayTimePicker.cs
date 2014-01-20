@@ -166,9 +166,13 @@ namespace Kavand.Windows.Controls {
 
         #region .ctor
 
+        static DayTimePicker() {
+            CursorProperty.OverrideMetadata(Typeof, new FrameworkPropertyMetadata(Cursors.Arrow));
+        }
+
         public DayTimePicker() {
             // disabling paste command
-            CommandBindings.Remove(new CommandBinding(ApplicationCommands.Paste));
+            CommandBindings.Add(new CommandBinding(ApplicationCommands.Paste, (s, e) => { }));
         }
 
         #endregion
@@ -188,13 +192,18 @@ namespace Kavand.Windows.Controls {
         }
 
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e) {
-            base.OnPreviewMouseDown(e);
+            Focus();
             FixTextPart();
             var isInASegment = TryFocusOnCorrectSegment(e.GetPosition(this));
             if (isInASegment)
                 _caretPosition = SelectionStart;
-            e.Handled = isInASegment;
-            Focus();
+            e.Handled = true;
+            base.OnPreviewMouseDown(e);
+        }
+
+        protected override void OnContextMenuOpening(ContextMenuEventArgs e) {
+            e.Handled = true;
+            base.OnContextMenuOpening(e);
         }
 
         protected override void OnPreviewMouseWheel(MouseWheelEventArgs e) {
@@ -389,8 +398,12 @@ namespace Kavand.Windows.Controls {
                 CurrentSegment = TimeSegment.Minute;
             else if (caretIndex >= DesignatorSegmentStartIndex && caretIndex < Text.Length)
                 CurrentSegment = TimeSegment.Designator;
-            else
-                CurrentSegment = null;
+            else {
+                // we want to open a drop down menu here, so we have to set current segment to null:
+                // CurrentSegment = null;
+                // but for now, while our drop down is not ready, we just focus on first segment:
+                CurrentSegment = TimeSegment.Hour;
+            }
             return CurrentSegment != null;
         }
 
